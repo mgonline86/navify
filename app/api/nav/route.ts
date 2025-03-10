@@ -1,10 +1,4 @@
-import * as fs from "node:fs";
-
 export async function GET() {
-  if (fs.existsSync("nav.json")) {
-    const data =JSON.parse(fs.readFileSync("nav.json", "utf8"));
-    return Response.json(data);
-  }
 
   return Response.json([
     { id: 1, title: "Dashboard", target: "/" },
@@ -51,6 +45,5 @@ export async function POST(req: Request) {
   const items = await req.json();
   if (!Array.isArray(items)) return new Response(null, { status: 400 });
 
-  fs.writeFileSync("nav.json", JSON.stringify(items));
   return new Response(null, { status: 204 });
 }
