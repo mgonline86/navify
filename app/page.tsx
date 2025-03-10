@@ -76,7 +76,7 @@ const searchResults: Job[] = [
 
 export default function Home() {
 	return (
-		<main className="pt-2 xl:pt-4 pb-9 px-5 xl:ps-6 xl:pe-14 grow flex flex-col">
+		<div className="pt-2 xl:pt-4 pb-9 px-5 xl:ps-6 xl:pe-14 grow flex flex-col">
 			<div className="hidden xl:flex justify-end">
 				<SortDropDown />
 			</div>
@@ -94,6 +94,6 @@ export default function Home() {
 				</div>
 				<SearchPagination />
 			</div>
-		</main>
+		</div>
 	);
 }
