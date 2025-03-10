@@ -1,11 +1,14 @@
 import AsideBar from "@/components/aside-bar";
 import MainNav from "@/components/main-nav";
+import SortDropDown from "@/components/sort-dropdown";
+import EditSideSheet from "@/components/ui/edit-side-sheet";
+import SearchHeader from "@/components/ui/search/search-header";
+import { EditingProvider } from "@/providers/EditingProvider";
 import QueryProvider from "@/providers/QueryProvider";
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import { Toaster } from "sonner";
 import "./globals.css";
-import { EditingProvider } from "@/providers/EditingProvider";
 
 const dmSans = DM_Sans({
 	variable: "--font-dm-sans",
@@ -13,7 +16,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-	title: "Navify"
+	title: "Navify",
 };
 
 export default function RootLayout({
@@ -31,7 +34,20 @@ export default function RootLayout({
 						<MainNav />
 						<main className="xl:flex grow">
 							<AsideBar />
-							{children}
+							<div className="pt-2 xl:pt-4 pb-9 px-5 xl:ps-6 xl:pe-14 grow flex flex-col">
+								<div className="hidden xl:flex justify-end">
+									<SortDropDown />
+								</div>
+								<div className="xl:pe-20 mt-5">
+									<div className="flex items-center justify-between gap-1.5 min-h-14 xl:min-h-28">
+										<SearchHeader />
+										<div className="border w-14 h-14 rounded-xs flex items-center justify-center xl:hidden">
+											<EditSideSheet />
+										</div>
+									</div>
+									{children}
+								</div>
+							</div>
 						</main>
 					</EditingProvider>
 					<Toaster />
