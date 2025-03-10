@@ -1,6 +1,6 @@
 import * as fs from "node:fs";
 
-export async function GET(req: Request) {
+export async function GET() {
   if (fs.existsSync("nav.json")) {
     const data =JSON.parse(fs.readFileSync("nav.json", "utf8"));
     return Response.json(data);
