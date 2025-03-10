@@ -1,56 +1,68 @@
 import type { NavItem } from "@/models/nav-item";
 import Image from "next/image";
 import Link from "next/link";
+import jobsmobIcon from "../public/icons/bag-mob.svg";
 import jobsIcon from "../public/icons/bag.svg";
+import notificationsmobIcon from "../public/icons/bell-mob.svg";
 import notificationsIcon from "../public/icons/bell.svg";
+import homemobIcon from "../public/icons/home-mob.png";
 import homeIcon from "../public/icons/home.svg";
+import messagingmobIcon from "../public/icons/message-mob.svg";
 import messagingIcon from "../public/icons/message.svg";
 import searchIcon from "../public/icons/search.svg";
+import employersmobIcon from "../public/icons/user-group-mob.svg";
 import employersIcon from "../public/icons/users-group.svg";
 import Logo from "./logo";
 import NavListItem from "./nav-list-item";
 import { Button } from "./ui/button";
+import MobileNav from "./ui/mobile-nav";
 import { Separator } from "./ui/separator";
 import UserNav from "./user-nav";
 
-const pagesLinks: NavItem[] = [
+export const pagesLinks: NavItem[] = [
 	{
 		label: "Home",
 		href: "/",
 		iconURL: homeIcon,
+		iconMobURL: homemobIcon,
 		iconAlt: "home-icon",
 	},
 	{
 		label: "Jobs",
 		href: "/jobs",
 		iconURL: jobsIcon,
+		iconMobURL: jobsmobIcon,
 		iconAlt: "jobs-icon",
 	},
 	{
 		label: "Employers",
 		href: "/employers",
 		iconURL: employersIcon,
+		iconMobURL: employersmobIcon,
 		iconAlt: "employers-icon",
 	},
 ];
-const profileLinks: NavItem[] = [
+export const profileLinks: NavItem[] = [
 	{
 		label: "Notifications",
 		href: "/notifications",
 		iconURL: notificationsIcon,
+		iconMobURL: notificationsmobIcon,
 		iconAlt: "notifications-icon",
 	},
 	{
 		label: "Messaging",
 		href: "/messaging",
 		iconURL: messagingIcon,
+		iconMobURL: messagingmobIcon,
 		iconAlt: "messaging-icon",
 	},
 ];
 
 export default function MainNav() {
 	return (
-		<nav className="flex items-center justify-between gap-4 bg-primary text-primary-foreground h-[var(--main-nav-h)] py-4 px-24 space-x-4 lg:space-x-6">
+		<nav className="flex items-center justify-between gap-4 bg-primary text-primary-foreground h-[var(--main-nav-h)] px-5 py-4 xl:px-24 gap-x-4 lg:gap-x-6">
+			<MobileNav />
 			<div className="flex items-center gap-11">
 				<Link href="/">
 					<Logo />

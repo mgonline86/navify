@@ -139,11 +139,11 @@ export default function LinkItemCard({
 							type="text"
 							value={title}
 							onChange={(e) => setTitle(e.target.value)}
-							className="text-2xl w-full border border-border bg-background rounded-lg px-2 py-1 focus:outline-none focus:border-accent"
+							className="text-lg xl:text-2xl w-full border border-border bg-background rounded-lg px-2 py-1 focus:outline-none focus:border-accent"
 							required
 						/>
 					) : (
-						<Link href={item.target || "#"} className="text-2xl grow truncate">
+						<Link href={item.target || "#"} className="text-lg xl:text-2xl grow xl:truncate">
 							{item.title}
 						</Link>
 					)}

@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import { Toaster } from "sonner";
 import "./globals.css";
+import { EditingProvider } from "@/providers/EditingProvider";
 
 const dmSans = DM_Sans({
 	variable: "--font-dm-sans",
@@ -27,11 +28,13 @@ export default function RootLayout({
 				<body
 					className={`${dmSans.variable} antialiased font-[family-name:var(--font-dm-sans)] flex flex-col min-h-svh`}
 				>
-					<MainNav />
-					<main className="flex grow">
-						<AsideBar />
-						{children}
-					</main>
+					<EditingProvider>
+						<MainNav />
+						<main className="xl:flex grow">
+							<AsideBar />
+							{children}
+						</main>
+					</EditingProvider>
 					<Toaster />
 				</body>
 			</QueryProvider>

@@ -7,8 +7,11 @@ import saveIcon from "../public/icons/check.svg";
 import closeIcon from "../public/icons/close.svg";
 import settingIcon from "../public/icons/settings.svg";
 import { Button } from "./ui/button";
+import { ArrowLeftIcon } from "lucide-react";
 
-export default function AsideBarHeader() {
+export default function AsideBarHeader({
+	closeSheet,
+}: { closeSheet?: () => void }) {
 	const {
 		isEditing,
 		setIsEditing,
@@ -35,10 +38,12 @@ export default function AsideBarHeader() {
 		},
 	});
 	return (
-		<div className="sticky top-0 bg-primary-foreground z-10">
-			<div className="px-3.5 py-9">
-				<div className="flex justify-between px-7">
-					<span className="text-2xl">Menu</span>
+		<div className="bg-primary-foreground">
+			<div className="py-5 xl:px-3.5 xl:py-9">
+				<div className="flex justify-between xl:px-7">
+					<div className="text-lg font-normal xl:text-2xl flex items-center gap-3">
+						<ArrowLeftIcon onClick={closeSheet ?? undefined} className="xl:hidden" /> Menu
+					</div>
 					{isEditing ? (
 						<div className="flex items-center gap-2">
 							<Button
@@ -46,7 +51,7 @@ export default function AsideBarHeader() {
 								size="icon"
 								onClick={handleCancelEdits}
 								disabled={isPending}
-								className="hover:scale-105 duration-300 ease-in-out transform cursor-pointer"
+								className="hidden xl:block hover:scale-105 duration-300 ease-in-out transform cursor-pointer"
 							>
 								<Image src={closeIcon} alt="close-icon" className="w-10 h-10" />
 							</Button>
@@ -72,7 +77,7 @@ export default function AsideBarHeader() {
 					)}
 				</div>
 			</div>
-			<hr />
+			<hr className="hidden xl:block"/>
 		</div>
 	);
 }

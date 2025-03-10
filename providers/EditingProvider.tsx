@@ -1,6 +1,7 @@
 "use client";
 
 import type { LinkItem } from "@/models/link-item";
+import { useQuery } from "@tanstack/react-query";
 import { type ReactNode, createContext, useContext, useState } from "react";
 
 const EditingContext = createContext<{
@@ -10,6 +11,8 @@ const EditingContext = createContext<{
 	setOriginalLinksTree: (linksTree: LinkItem[]) => void;
 	lastSavedLinks: LinkItem[];
 	setLastSavedLinks: (lastSavedLinks: LinkItem[]) => void;
+	isLoading?: boolean;
+	isError?: boolean;
 }>({
 	isEditing: false,
 	setIsEditing: () => {},
@@ -17,22 +20,32 @@ const EditingContext = createContext<{
 	setOriginalLinksTree: () => {},
 	lastSavedLinks: [] as LinkItem[],
 	setLastSavedLinks: () => {},
+	isLoading: false,
+	isError: false,
 });
 
 export function EditingProvider({
 	children,
-	originalLinksTree,
-	setOriginalLinksTree,
-	lastSavedLinks,
-	setLastSavedLinks,
 }: {
 	children: ReactNode;
-	originalLinksTree: LinkItem[];
-	setOriginalLinksTree: (linksTree: LinkItem[]) => void;
-	lastSavedLinks: LinkItem[];
-	setLastSavedLinks: (lastSavedLinks: LinkItem[]) => void;
 }) {
 	const [isEditing, setIsEditing] = useState(false);
+	const [originalLinksTree, setOriginalLinksTree] = useState<LinkItem[]>([]);
+	const [lastSavedLinks, setLastSavedLinks] = useState<LinkItem[]>([]);
+
+	const { isLoading, isError } = useQuery({
+		queryKey: ["links-tree"],
+		queryFn: async (): Promise<LinkItem[] | null> => {
+			const res = await fetch("/api/nav");
+			if (!res.ok) {
+				throw new Error("Failed to fetch links tree");
+			}
+			const initialLinks = await res.json();
+			setOriginalLinksTree(initialLinks);
+			setLastSavedLinks(initialLinks);
+			return initialLinks;
+		},
+	});
 	return (
 		<EditingContext.Provider
 			value={{
@@ -42,6 +55,8 @@ export function EditingProvider({
 				setOriginalLinksTree,
 				lastSavedLinks,
 				setLastSavedLinks,
+				isLoading,
+				isError,
 			}}
 		>
 			{children}

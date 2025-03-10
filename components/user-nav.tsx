@@ -1,4 +1,3 @@
-import { ChevronRightIcon } from "lucide-react";
 import Image from "next/image";
 import dropdown from "../public/icons/dropdown.svg";
 import avatarImage from "../public/img/avatar.png";
@@ -13,6 +12,7 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
+import UserNavLabel from "./ui/user-nav-label";
 
 export default function UserNav() {
 	return (
@@ -41,22 +41,7 @@ export default function UserNav() {
 			</DropdownMenuTrigger>
 			<DropdownMenuContent className="w-80 max-w-full" align="end" forceMount>
 				<DropdownMenuLabel className="font-normal">
-					<div className="flex items-center gap-4">
-						<Avatar className="h-[4.375rem] w-[4.375rem]">
-							<AvatarImage src={avatarImage.src} alt="avatar" />
-							<AvatarFallback>AA</AvatarFallback>
-						</Avatar>
-						<div className="flex flex-col grow">
-							<span className="text-lg">Ahmed Amar</span>
-							<span className="text-sm text-secondary font-normal">
-								UX UI Designer
-							</span>
-						</div>
-						<ChevronRightIcon
-							strokeWidth={1.5}
-							className="text-muted-foreground"
-						/>
-					</div>
+					<UserNavLabel />
 				</DropdownMenuLabel>
 				<DropdownMenuSeparator />
 				<DropdownMenuGroup className="py-5 px-6">

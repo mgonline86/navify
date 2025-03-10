@@ -34,7 +34,7 @@ export default function SortDropDown() {
 				icon={
 					<ChevronDownIcon className="size-5 stroke-accent group-data-[state=open]:rotate-180" />
 				}
-				className="w-full max-w-[19.125rem] h-16 px-7 py-5 bg-transparent data-[state=open]:bg-primary-foreground data-[state=open]:rounded-b-none group cursor-pointer"
+				className="flex w-full max-w-[19.125rem] h-16 px-7 py-5 bg-transparent data-[state=open]:bg-primary-foreground data-[state=open]:rounded-b-none group cursor-pointer"
 			>
 				<div className="flex items-center gap-2 text-xl font-medium text-accent">
 					<span className="shrink text-primary">Sorting by:</span>
