@@ -42,11 +42,16 @@ export default function AsideBarHeader({
 			<div className="py-5 xl:px-3.5 xl:py-9">
 				<div className="flex justify-between xl:px-7">
 					<div className="text-lg font-normal xl:text-2xl flex items-center gap-3">
-						<ArrowLeftIcon onClick={closeSheet ?? undefined} className="xl:hidden" /> Menu
+						<ArrowLeftIcon
+							onClick={closeSheet ?? undefined}
+							className="xl:hidden"
+						/>{" "}
+						Menu
 					</div>
 					{isEditing ? (
 						<div className="flex items-center gap-2">
 							<Button
+								asChild
 								variant="link"
 								size="icon"
 								onClick={handleCancelEdits}
@@ -56,6 +61,7 @@ export default function AsideBarHeader({
 								<Image src={closeIcon} alt="close-icon" className="w-10 h-10" />
 							</Button>
 							<Button
+								asChild
 								variant="link"
 								size="icon"
 								disabled={isPending}
@@ -77,7 +83,7 @@ export default function AsideBarHeader({
 					)}
 				</div>
 			</div>
-			<hr className="hidden xl:block"/>
+			<hr className="hidden xl:block" />
 		</div>
 	);
 }

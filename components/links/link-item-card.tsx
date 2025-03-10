@@ -121,7 +121,7 @@ export default function LinkItemCard({
 			open={!isDragging && (isEditing || isOpen)}
 			onOpenChange={setIsOpen}
 		>
-			<li ref={setNodeRef} style={style}>
+			<li ref={setNodeRef} style={style} className="max-w-md">
 				<div
 					className={`flex gap-1.5 items-center px-7 py-5 rounded-lg touch-none min-w-fit${isDragging || item.visible === false ? " opacity-50" : ""}${parentAddress.length > 0 ? "" : " bg-background"}`}
 				>
