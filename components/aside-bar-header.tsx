@@ -45,7 +45,7 @@ export default function AsideBarHeader({
 						<ArrowLeftIcon
 							onClick={closeSheet ?? undefined}
 							className="xl:hidden"
-						/>{" "}
+						/>
 						Menu
 					</div>
 					{isEditing ? (

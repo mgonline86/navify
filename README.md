@@ -1,9 +1,10 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+# [Live Demo 🚀](https://navify-pi.vercel.app/)
+
 ## Installation
-using `--force` flag due to using tailwindcss v4 and React 19
 ```bash
-npm install --force
+npm install
 ```
 
 ## Getting Started
