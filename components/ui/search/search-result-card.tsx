@@ -28,7 +28,7 @@ const SearchResultTag = ({
 export default function SearchResultCard({ job }: { job: Job }) {
 	const [isFavorited, setIsFavorited] = useState(false);
 	return (
-		<div className="min-h-32 xl:min-h-72 bg-primary-foreground rounded-sm border cursor-pointer group hover:border-accent hover:bg-[#f3fdf3]">
+		<div className="min-h-32 xl:min-h-72 bg-primary-foreground rounded-sm border cursor-pointer group hover:border-accent hover:bg-[#f3fdf3] transition-colors duration-150">
 			<div className="flex justify-between items-center gap-2 px-4 pt-2.5 pb-1.5 xl:px-20 xl:pt-9 xl:pb-6">
 				<div className="flex flex-col gap-5">
 					<div className="flex items-center gap-5">
