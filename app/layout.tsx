@@ -41,9 +41,7 @@ export default function RootLayout({
 								<div className="xl:pe-20 mt-5">
 									<div className="flex items-center justify-between gap-1.5 min-h-14 xl:min-h-28">
 										<SearchHeader />
-										<div className="border w-14 h-14 rounded-xs flex items-center justify-center xl:hidden">
-											<EditSideSheet />
-										</div>
+										<EditSideSheet />
 									</div>
 									{children}
 								</div>

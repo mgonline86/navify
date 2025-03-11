@@ -31,7 +31,7 @@ export default function EditSideSheet() {
 	};
 	return (
 		<Sheet open={open} onOpenChange={setOpen}>
-			<SheetTrigger className="relative xl:hidden">
+			<SheetTrigger className="relative border w-14 h-14 rounded-xs flex items-center justify-center xl:hidden">
 				<MenuIcon />
 			</SheetTrigger>
 			<SheetContent className="w-full max-h-dvh overflow-y-scroll bg-primary-foreground">
